@@ -236,7 +236,14 @@ function draw() {
     context.lineTo(canvas.width, position);
     context.stroke();
   }
-  drawRoundedCell(food.x * cellSize, food.y * cellSize, cellSize, 8, "#f2a8b8");
+  const foodCenterX = food.x * cellSize + cellSize / 2;
+  const foodCenterY = food.y * cellSize + cellSize / 2;
+  context.fillStyle = "#f28fa5";
+  context.beginPath();
+  context.arc(foodCenterX, foodCenterY + 1, cellSize * .3, 0, Math.PI * 2);
+  context.fill();
+  context.fillStyle = "#6f9f73";
+  context.fillRect(foodCenterX - 1, foodCenterY - cellSize * .42, 2, cellSize * .15);
   if (coin) {
     const centerX = coin.x * cellSize + cellSize / 2;
     const centerY = coin.y * cellSize + cellSize / 2;
@@ -251,16 +258,24 @@ function draw() {
     context.fillText("+", centerX, centerY);
   }
   snake.forEach((segment, index) => {
-    drawRoundedCell(segment.x * cellSize, segment.y * cellSize, cellSize, 8, index === 0 ? "#a7d9c7" : "#c5e8da");
+    drawRoundedCell(segment.x * cellSize, segment.y * cellSize, cellSize, 8, index === 0 ? "#75b99e" : "#b9e4d2");
   });
   const head = snake[0];
   if (head) {
     context.fillStyle = "#302d3d";
-    const eyeOffset = direction.x < 0 ? 5 : direction.x > 0 ? cellSize - 8 : 7;
-    const eyeY = direction.y < 0 ? 5 : direction.y > 0 ? cellSize - 8 : 7;
+    const faceX = head.x * cellSize + cellSize / 2;
+    const faceY = head.y * cellSize + cellSize / 2;
+    const eyeOffsetX = direction.x === 0 ? cellSize * .17 : direction.x * cellSize * .12;
+    const eyeOffsetY = direction.y === 0 ? cellSize * .15 : direction.y * cellSize * .12;
     context.beginPath();
-    context.arc(head.x * cellSize + eyeOffset, head.y * cellSize + eyeY, 2, 0, Math.PI * 2);
+    context.arc(faceX - eyeOffsetX, faceY - eyeOffsetY, 2.5, 0, Math.PI * 2);
+    context.arc(faceX + eyeOffsetX, faceY + eyeOffsetY, 2.5, 0, Math.PI * 2);
     context.fill();
+    context.strokeStyle = "#744d68";
+    context.lineWidth = 2;
+    context.beginPath();
+    context.arc(faceX + direction.x * cellSize * .12, faceY + direction.y * cellSize * .12, cellSize * .12, 0, Math.PI);
+    context.stroke();
   }
 }
 

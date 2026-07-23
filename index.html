@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="신은혜 Engineer의 프로페셔널 웹사이트">
-  <title>신은혜 | Engineer</title>
+  <title>Engineer | App Developer</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,10 +22,20 @@
 
   <main id="home">
     <section class="hero" aria-labelledby="hero-title">
-      <p class="eyebrow">ENGINEER · APP DEVELOPER</p>
-      <h1 id="hero-title">안녕하세요, 신은혜입니다.</h1>
-      <p class="hero-copy">사람에게 유용한 경험을 만드는 App 개발자입니다.</p>
-      <a class="hero-link" href="#about">더 알아보기 <span aria-hidden="true">↗</span></a>
+      <div class="hero-layout">
+        <div>
+          <p class="eyebrow">ENGINEER · APP DEVELOPER</p>
+          <h1 id="hero-title">안녕하세요. 더 나은 모바일 경험을 만들어갑니다.</h1>
+          <p class="hero-copy">안드로이드 앱 개발을 바탕으로 사용하기 편안하고 오래 기억되는 경험을 정성껏 만들어가고 있습니다.</p>
+          <a class="hero-link" href="#about">소개 살펴보기 <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="profile-character" role="img" aria-label="앱을 들고 있는 귀여운 여성 모바일 앱 개발자 캐릭터">
+          <div class="character-hair"></div>
+          <div class="character-face"><span class="character-eye eye-left"></span><span class="character-eye eye-right"></span><span class="character-mouth"></span></div>
+          <div class="character-body"><span class="character-device"></span></div>
+          <span class="character-sparkle sparkle-one">✦</span><span class="character-sparkle sparkle-two">·</span>
+        </div>
+      </div>
     </section>
 
     <section id="about" class="card" aria-labelledby="about-title">
@@ -63,7 +73,7 @@
           <div class="score-group"><span>최고 점수</span><strong id="best-score">0</strong></div>
           <span id="game-status" class="game-status" role="status" aria-live="polite">시작을 눌러주세요</span>
         </div>
-        <canvas id="game-canvas" class="game-board" width="360" height="360" aria-label="지렁이 게임 보드"></canvas>
+        <canvas id="game-canvas" class="game-board" width="480" height="480" aria-label="지렁이 게임 보드"></canvas>
         <div class="game-actions">
           <button id="start-game" class="button button-primary" type="button">시작</button>
           <button id="pause-game" class="button" type="button" disabled>일시정지</button>
