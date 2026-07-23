@@ -1,0 +1,46 @@
+:root {
+  color-scheme: light;
+  --ink: #302d3d;
+  --muted: #716b80;
+  --paper: #fffafc;
+  --card: #ffffff;
+  --accent: #d9b8e8;
+  --accent-soft: #f4e8f8;
+  --line: #eadfec;
+  font-family: "Segoe UI", "Malgun Gothic", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+.site-header { align-items: center; background: rgba(255, 250, 252, .94); border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; padding: 1rem clamp(1rem, 4vw, 4rem); position: sticky; top: 0; z-index: 2; }
+.brand { font-size: 1.15rem; font-weight: 800; letter-spacing: .08em; }
+.site-nav { display: flex; gap: clamp(1rem, 3vw, 2.5rem); }
+.site-nav a { color: var(--muted); font-size: .9rem; font-weight: 700; }
+.site-nav a:hover, .site-nav a:focus-visible { color: var(--ink); }
+.nav-toggle { background: var(--accent-soft); border: 1px solid var(--line); border-radius: 999px; color: var(--ink); display: none; padding: .45rem .8rem; }
+main { margin: 0 auto; max-width: 960px; padding: 0 clamp(1rem, 5vw, 4rem) 4rem; }
+.hero { padding: clamp(4rem, 12vw, 9rem) 0 4rem; }
+.eyebrow, .section-label { color: var(--muted); font-size: .75rem; font-weight: 800; letter-spacing: .16em; margin: 0 0 .8rem; }
+h1, h2 { line-height: 1.2; margin: 0 0 1rem; }
+h1 { font-size: clamp(2.3rem, 7vw, 5rem); max-width: 720px; }
+h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+.hero-copy { color: var(--muted); font-size: clamp(1rem, 2vw, 1.25rem); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 1.5rem; margin-top: 1rem; padding: clamp(1.4rem, 4vw, 2.5rem); }
+.card p:last-child { color: var(--muted); margin-bottom: 0; }
+.game-placeholder { background: linear-gradient(135deg, #fff, var(--accent-soft)); }
+.game-board { align-items: center; background: rgba(255,255,255,.75); border: 1px dashed var(--accent); border-radius: 1rem; color: var(--muted); display: flex; justify-content: center; margin-top: 1.5rem; min-height: 150px; }
+.site-footer { color: var(--muted); font-size: .85rem; padding: 1.5rem; text-align: center; }
+:focus-visible { outline: 3px solid #9d6bb0; outline-offset: 3px; }
+
+@media (max-width: 767px) {
+  .nav-toggle { display: block; }
+  .site-nav { background: var(--card); border: 1px solid var(--line); border-radius: 1rem; display: none; flex-direction: column; gap: .2rem; padding: .7rem; position: absolute; right: 1rem; top: 4rem; }
+  .site-nav.is-open { display: flex; }
+  .site-nav a { padding: .45rem .7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
